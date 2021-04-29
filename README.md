@@ -10,10 +10,19 @@ change config env
 
 
 DATABASE_USER=root
+<br />
 DATABASE_NAME=oxygene
+<br />
 DATABASE_HOST=localhost
+<br />
 DATABASE_PORT=3307
+<br />
 DATABASE_PASSWORD=
+<br />
+
+
+run projer :
+npm run srart
 
 
 
