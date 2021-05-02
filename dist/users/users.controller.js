@@ -35,7 +35,7 @@ let UsersController = class UsersController {
     }
 };
 __decorate([
-    common_1.Get('Users'),
+    common_1.Get(''),
     common_1.UseGuards(passport_1.AuthGuard()),
     __param(0, common_1.Res()),
     __metadata("design:type", Function),

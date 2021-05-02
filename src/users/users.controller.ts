@@ -9,7 +9,7 @@ export class UsersController {
     constructor(
         private readonly usersService: UsersService
         ){}
-    @Get('Users')
+    @Get('')
   @UseGuards(AuthGuard())
   findAllUser(@Res() res): Promise<any>  {
     return this.usersService

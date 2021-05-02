@@ -14,6 +14,7 @@ const typeorm_1 = require("typeorm");
 const class_transformer_1 = require("class-transformer");
 const role_entity_1 = require("../roles/role.entity");
 const swagger_1 = require("@nestjs/swagger");
+const oxygen_entity_1 = require("../oxygene/oxygen.entity");
 let User = class User {
     constructor(partial) {
         Object.assign(this, partial);
@@ -50,6 +51,10 @@ __decorate([
     typeorm_1.ManyToOne(type => role_entity_1.Role),
     __metadata("design:type", role_entity_1.Role)
 ], User.prototype, "role", void 0);
+__decorate([
+    typeorm_1.OneToMany(type => oxygen_entity_1.Oxygene, oxygene => oxygene.user),
+    __metadata("design:type", Array)
+], User.prototype, "oxygenes", void 0);
 __decorate([
     swagger_1.ApiProperty({ required: false }),
     typeorm_1.Column({ length: 50 }),
