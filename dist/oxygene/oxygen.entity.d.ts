@@ -4,6 +4,8 @@ export declare class Oxygene {
     description: string;
     latitude: String;
     longitude: String;
+    gouvernerat: String;
+    delegation: String;
     prixJour: String;
     prixSemaine: String;
     prixMoi: String;

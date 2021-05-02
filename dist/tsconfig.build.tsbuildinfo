@@ -3322,8 +3322,8 @@
         "affectsGlobalScope": false
       },
       "../src/oxygene/oxygen.entity.ts": {
-        "version": "10273738c2b7e2514fa63c0177ef2a9a53a910dcdfe02d338b2b738eed558e2c",
-        "signature": "8d8ab84e87843c65dd06b2526de1124e09a9aab85b9639452461d5712a0a5ea6",
+        "version": "3052a6ec18a65dcc319a69cc8163863de209f74cc0085bf8ad0ab90ee4499932",
+        "signature": "0125328a883b7149f7870a3c1aab846001bb04ce7381567c9c69bf74b7afa0a1",
         "affectsGlobalScope": false
       },
       "../src/users/user.entity.ts": {
@@ -4302,13 +4302,13 @@
         "affectsGlobalScope": false
       },
       "../src/oxygene/oxygene.service.ts": {
-        "version": "fc26fdb994c6c71afc2e4018980f2775689c6513cb9e07f01e8fe40b095ab097",
-        "signature": "4782c718dd5048d63588fe50d4fc3be7a88de637a1d2335f19f82c58b15cdd80",
+        "version": "a87823dbe9a6fbeb311fc10bb488dfd1615a53b94fe8cffbefaf48a7b4208d6f",
+        "signature": "ab8bd3ae47388ae7f4fa446a43898606270924ea4109177ae9762e6f1e58e070",
         "affectsGlobalScope": false
       },
       "../src/oxygene/oxygene.controller.ts": {
-        "version": "7b4674ba6abddefa9247c873f640e664674f33049cc8ae43f7ae717253274297",
-        "signature": "8a6e154ba25a6d847bab12718711bde1dab0ce69b6b7a6fca4359ce5017d8ad6",
+        "version": "6991da18fe794a9b0f7a20910b87dd4f61aba4b1753027c998540425e99f0cb8",
+        "signature": "851ed719105a249156cbf940875d4d971e879f8e4e14a04289454c8feb0a8858",
         "affectsGlobalScope": false
       },
       "../src/oxygene/oxygene.module.ts": {

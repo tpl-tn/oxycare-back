@@ -18,6 +18,10 @@ export class Oxygene {
   @ApiProperty({ required: false, type: String, maxLength: 500 })
   @Column({ length: 500, nullable: true })
   longitude: String;
+  @Column({ length: 500, nullable: true })
+  gouvernerat: String;
+  @Column({ length: 500, nullable: true })
+  delegation: String;
   @ApiProperty({ required: false, type: String, maxLength: 500 })
   @Column({ length: 500, nullable: true })
   prixJour: String;

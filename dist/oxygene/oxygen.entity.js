@@ -35,6 +35,14 @@ __decorate([
     __metadata("design:type", String)
 ], Oxygene.prototype, "longitude", void 0);
 __decorate([
+    typeorm_1.Column({ length: 500, nullable: true }),
+    __metadata("design:type", String)
+], Oxygene.prototype, "gouvernerat", void 0);
+__decorate([
+    typeorm_1.Column({ length: 500, nullable: true }),
+    __metadata("design:type", String)
+], Oxygene.prototype, "delegation", void 0);
+__decorate([
     swagger_1.ApiProperty({ required: false, type: String, maxLength: 500 }),
     typeorm_1.Column({ length: 500, nullable: true }),
     __metadata("design:type", String)

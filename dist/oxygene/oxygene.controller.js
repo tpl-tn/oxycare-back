@@ -46,27 +46,40 @@ let OxygeneController = class OxygeneController {
                 .json({ message: 'BAD_REQUEST' });
         });
     }
-    deleteOygene(res) {
-        return this.oxygeneService.findAllOxygene()
+    deleteOygene(res, id) {
+        return this.oxygeneService.delete(id)
             .then(data => {
-            return res.status(common_1.HttpStatus.OK).json(data);
+            res.status(common_1.HttpStatus.OK).json({ data });
         })
             .catch(erreur => {
-            return res
-                .status(common_1.HttpStatus.BAD_REQUEST)
-                .json({ message: 'BAD_REQUEST' });
+            return res.status(common_1.HttpStatus.INTERNAL_SERVER_ERROR).json({
+                error: `Une erreur c'est produit lors de supression de matière.\nErreur: ${erreur}`,
+            });
         });
     }
-    editOygene(res) {
-        return this.oxygeneService.findAllOxygene()
-            .then(data => {
-            return res.status(common_1.HttpStatus.OK).json(data);
+    editOygene(res, id, oxygene) {
+        return this.oxygeneService
+            .findOneOxygene(id)
+            .then(response => {
+            if (response) {
+                return this.oxygeneService.
+                    saveOrUpdateOxygene(response)
+                    .then(result => res
+                    .status(common_1.HttpStatus.OK)
+                    .json({ message: 'Oxygene modifié avec succès', result }))
+                    .catch(error => res.status(common_1.HttpStatus.INTERNAL_SERVER_ERROR).json({
+                    error: `Une erreur c'est produit lors de modification de oxygene.\nErreur: ${error}`,
+                }));
+            }
+            else {
+                return res
+                    .status(common_1.HttpStatus.NOT_FOUND)
+                    .json({ error: `Oxygene inexistante` });
+            }
         })
-            .catch(erreur => {
-            return res
-                .status(common_1.HttpStatus.BAD_REQUEST)
-                .json({ message: 'BAD_REQUEST' });
-        });
+            .catch(error => res.status(common_1.HttpStatus.INTERNAL_SERVER_ERROR).json({
+            error: `Une erreur c'est produit lors de récupération de Oxygene.\nErreur: ${error}`,
+        }));
     }
 };
 __decorate([
@@ -78,6 +91,10 @@ __decorate([
 ], OxygeneController.prototype, "findAllOxygene", null);
 __decorate([
     common_1.UseGuards(passport_1.AuthGuard()),
+    swagger_1.ApiBody({
+        type: oxygen_entity_1.Oxygene,
+        required: true,
+    }),
     common_1.Post('add'),
     __param(0, common_1.Req()), __param(1, common_1.Res()), __param(2, common_1.Body()),
     __metadata("design:type", Function),
@@ -85,17 +102,26 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], OxygeneController.prototype, "addOxygene", null);
 __decorate([
-    common_1.Delete(),
-    __param(0, common_1.Res()),
+    common_1.Delete(':id'),
+    swagger_1.ApiParam({ name: 'id', type: 'number', required: true }),
+    common_1.UseGuards(passport_1.AuthGuard()),
+    __param(0, common_1.Res()), __param(1, common_1.Param('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", Promise)
 ], OxygeneController.prototype, "deleteOygene", null);
 __decorate([
-    common_1.Put(),
-    __param(0, common_1.Res()),
+    common_1.Put(':id'),
+    swagger_1.ApiParam({ name: 'id', type: 'number', required: true }),
+    swagger_1.ApiBody({
+        type: oxygen_entity_1.Oxygene,
+        required: true,
+    }),
+    common_1.UseGuards(passport_1.AuthGuard()),
+    __param(0, common_1.Res()), __param(1, common_1.Param('id')),
+    __param(2, common_1.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", [Object, Object, oxygen_entity_1.Oxygene]),
     __metadata("design:returntype", Promise)
 ], OxygeneController.prototype, "editOygene", null);
 OxygeneController = __decorate([
