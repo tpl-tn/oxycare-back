@@ -12,6 +12,7 @@ import {
  
   import {Role} from '../roles/role.entity';
 import { ApiProperty } from '@nestjs/swagger';
+import { Oxygene } from 'src/oxygene/oxygen.entity';
  
   @Entity()
   export class User {
@@ -49,6 +50,8 @@ import { ApiProperty } from '@nestjs/swagger';
 
     @ManyToOne(type => Role)
     role: Role;
+    @OneToMany(type => Oxygene, oxygene =>  oxygene.user)
+    oxygenes: Oxygene[];
   
     
   

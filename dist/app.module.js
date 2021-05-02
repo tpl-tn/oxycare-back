@@ -21,6 +21,8 @@ const permissions_service_1 = require("./permissions/permissions.service");
 const typeorm_1 = require("@nestjs/typeorm");
 const user_entity_1 = require("./users/user.entity");
 const role_entity_1 = require("./roles/role.entity");
+const oxygene_module_1 = require("./oxygene/oxygene.module");
+const oxygen_entity_1 = require("./oxygene/oxygen.entity");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -34,13 +36,14 @@ AppModule = __decorate([
                 username: process.env.DATABASE_USER,
                 password: process.env.DATABASE_PASSWORD,
                 database: process.env.DATABASE_NAME,
-                entities: [user_entity_1.User, role_entity_1.Role],
+                entities: [user_entity_1.User, role_entity_1.Role, oxygen_entity_1.Oxygene],
                 synchronize: true,
             }),
             auth_module_1.AuthModule,
             users_module_1.UsersModule,
             roles_module_1.RolesModule,
             permissions_module_1.PermissionsModule,
+            oxygene_module_1.OxygeneModule,
         ],
         controllers: [app_controller_1.AppController,
             roles_controller_1.RolesController,],

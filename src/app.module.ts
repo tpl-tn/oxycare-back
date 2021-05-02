@@ -12,6 +12,8 @@ import { PermissionsService } from './permissions/permissions.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/user.entity';
 import { Role } from './roles/role.entity';
+import { OxygeneModule } from './oxygene/oxygene.module';
+import { Oxygene } from './oxygene/oxygen.entity';
 @Module({
   imports: [
     ConfigModule.forRoot({ envFilePath: '.env',}),
@@ -22,7 +24,7 @@ import { Role } from './roles/role.entity';
       username: process.env.DATABASE_USER,
       password: process.env.DATABASE_PASSWORD,
       database: process.env.DATABASE_NAME,
-      entities: [User,Role],
+      entities: [User,Role,Oxygene],
       synchronize: true,
     }),
      AuthModule,
@@ -30,7 +32,8 @@ import { Role } from './roles/role.entity';
    
    
     RolesModule,
-    PermissionsModule,],
+    PermissionsModule,
+    OxygeneModule,],
   controllers: [  AppController,
     RolesController,],
   providers: [  AppService,
